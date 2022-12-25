@@ -4,6 +4,22 @@
 
 {% block content %}
 <h1>
-    Welcome {{ user.username}}
+    Welcome {{ user.get_full_name }}
 </h1>
+
+{% with profile=user.profile %}
+    {% if profile %}
+        <h2>
+            {{ profile.persona|default:'' }}
+        </h2>
+        <div>
+            {{ profile.bio|default:'' }}
+        </div>
+        <div>
+            {% with website=profile.website|default:'' %}
+                <a href="{{website}}">{{ website }}</a>
+            {% endwith %}
+        </div>
+    {% endif %}
+{% endwith %}
 {% endblock %}
