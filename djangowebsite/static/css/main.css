@@ -1,0 +1,8 @@
+#main {
+    padding-top: 74px;
+}
+@media (min-width: 992px) {
+    #main {
+      padding-top: 104px;
+    }
+}   
